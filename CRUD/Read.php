@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,8 +32,8 @@
                         echo "<td>". $DataUsers['nome']."</td>"; //Aqui você deve colocar no lugar de $DataUsers['nome'] as colunas referentes as tabelas do seu bando de dados :)        
                         echo "<td>". $DataUsers['email']."</td>"; 
                         //Caso aja outras colunas além de nome e email, apenas repita os comandos acima :)
-                        echo "<td><Button>Excluir</Button></td>";
-                        echo "<td><Button>Atualizar</Button></td>";
+                        echo "<td><a>Excluir</a></td>";
+                        echo "<td><a href='Update.php?id=$DataUsers[id]'>Atualizar</a></td>";
                         echo '</tr>';
                     }
 
