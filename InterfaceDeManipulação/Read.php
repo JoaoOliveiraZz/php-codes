@@ -53,17 +53,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Deseja deletar este usuário? </h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Deletar usuário </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <form action="../CRUD/Delete.php" method="POST">
+                <form action="Delete.php" method="POST">
 
                     <div class="modal-body">
 
-                        <input type="hidden" value="<?php $DataUsers['id']; ?>" name="delete_id" id="delete_id">
+                    <h4>Confirme o nome do usuário a ser deletado</h4>
+
+                        <input type="text" name="nome" placeholder="Confirme o nome" id="delete_id">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"> Não </button>
@@ -89,7 +91,7 @@
 
                 $('#deletemodal').modal('show');
                 
-                console.log();
+                
 
 
             });
