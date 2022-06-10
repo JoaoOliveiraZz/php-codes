@@ -7,7 +7,7 @@
         $Nome = $_POST['nome'];
         $Email = $_POST['email'];
         $Senha = md5( $_POST['senha']);
-        
+
         echo $id;
 
         $sql = "UPDATE usuarios SET nome='$Nome', email='$Email', senha='$Senha' WHERE id = '$id'";
