@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="Interface.css">
+
     <title>Document</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
             $result = $con -> query($sql);
 
         ?>
-        <table>
+        <table class="table table-dark table-striped ">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -90,9 +90,6 @@
             $('.deletebtn').on('click', function () {
 
                 $('#deletemodal').modal('show');
-                
-                
-
 
             });
         });
