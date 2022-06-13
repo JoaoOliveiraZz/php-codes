@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="Interface.css">
 
-    <title>Document</title>
+    <title>ADM</title>
 </head>
 <body>
-        <?php
+    <div class="container">
+    <button type="button" class="btn btn-outline-success">Inserir</button>
+    <?php
 
-            include_once('connection.php');
+include_once('connection.php');
 
             //Criando uma query de Select ordenando os usuários por ID
             $sql = "SELECT * FROM usuarios ORDER BY id DESC";
@@ -37,8 +40,8 @@
                         echo "<td>". $DataUsers['nome']."</td>"; //Aqui você deve colocar no lugar de $DataUsers['nome'] as colunas referentes as tabelas do seu bando de dados :)        
                         echo "<td>". $DataUsers['email']."</td>"; 
                         //Caso aja outras colunas além de nome e email, apenas repita os comandos acima :)
-                        echo "<td><button class='deletebtn'>Excluir</button></td>";
-                        echo "<td><a href='Update.php?id=$DataUsers[id]'>Atualizar</a></td>";
+                        echo "<td><button class='btn btn-danger'>Excluir</button></td>";
+                        echo "<td><button class='btn btn-info'>Editar</button></td>";
                         echo '</tr>';
                     }
 
@@ -46,7 +49,8 @@
             </tbody>
         </table>
 
-        <!-- Modal-->
+
+        <!-- Modal Delete-->
 
         <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -77,6 +81,46 @@
         </div>
     </div>
 
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Editar usuário </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action='Edit.php' method="POST">
+
+                    <div class="modal-body">
+
+                    <h4>Confirme os dados a serem atualizados</h4>
+
+                    <div class="mb3">      
+                        <input type="text" name="nome" class="form-control" placeholder="Nome">
+                    </div>
+                    <div class="mb3">
+                        <input type="text" name="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="mb3"></div>
+                        <input type="text" name="senha" class="form-control" placeholder="Senha">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"> Não </button>
+                        <button type="submit" name="deletedata" class="btn btn-primary">Sim </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
@@ -87,13 +131,18 @@
     <script>
         $(document).ready(function () {
 
-            $('.deletebtn').on('click', function () {
+            $('.btn-danger').on('click', function () {
 
                 $('#deletemodal').modal('show');
 
             });
+            $('.btn-info').on('click', () =>{
+                $('#editmodal').modal('show');
+            })
         });
     </script>
+
+</div>
     
 </body>
 </html>
